@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "apps.core.apps.CoreConfig",
     "apps.unfold_admin",
     "apps.api",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,30 @@ STATIC_URL = "static/"
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
+
+REDIS_URL = env("REDIS_URL", default="redis://127.0.0.1:6379/0")
+SENSOR_DATA_MODE = env("SENSOR_DATA_MODE", default="mock")
+
+UNFOLD = {
+    "SIDEBAR": {
+        "show_search": False,
+        "navigation": [
+            {
+                "title": "Мониторинг",
+                "separator": False,
+                "items": [
+                    {
+                        "title": "Станки",
+                        "icon": "precision_manufacturing",
+                        "link": "/admin/core/machine/",
+                    },
+                    {
+                        "title": "Датчики",
+                        "icon": "sensors",
+                        "link": "/admin/core/sensor/",
+                    },
+                ],
+            },
+        ],
+    },
+}
