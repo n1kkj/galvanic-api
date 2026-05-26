@@ -137,7 +137,7 @@ CSRF_COOKIE_SECURE = False
 SECURE_SSL_REDIRECT = False
 
 REDIS_URL = env("REDIS_URL", default="redis://127.0.0.1:6379/0")
-SENSOR_DATA_MODE = env("SENSOR_DATA_MODE", default="mock")
+SENSOR_DATA_MODE = env("SENSOR_DATA_MODE", default="factory_api")
 
 UNFOLD = {
     "SIDEBAR": {
@@ -162,3 +162,5 @@ UNFOLD = {
         ],
     },
 }
+
+FACTORY_STATUS_URL = env("FACTORY_STATUS_URL", default="https://pr4ibk-37-230-157-12.ru.tuna.am/api/factory-status")

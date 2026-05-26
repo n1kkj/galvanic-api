@@ -10,7 +10,7 @@ class CoreConfig(AppConfig):
     verbose_name = "Core"
 
     def ready(self):
-        if settings.SENSOR_DATA_MODE != "mock":
+        if settings.SENSOR_DATA_MODE not in {"mock", "factory_api"}:
             return
         if os.environ.get("RUN_MAIN") != "true":
             return
